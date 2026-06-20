@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.PersianTV" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:colorPrimary">@color/persian_blue</item>
+        <item name="android:colorPrimaryDark">@color/persian_blue_dark</item>
+        <item name="android:colorAccent">@color/persian_green</item>
+        <item name="android:windowBackground">@android:color/black</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+</resources>
