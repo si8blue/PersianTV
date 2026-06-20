@@ -32,6 +32,7 @@ fun PlayerScreen(
     val context = LocalContext.current
     var isLoading by remember { mutableStateOf(true) }
     var hasError by remember { mutableStateOf(false) }
+    var errorMessage by remember { mutableStateOf("") }
 
     val exoPlayer = remember {
         val trackSelector = DefaultTrackSelector(context).apply {
@@ -44,12 +45,28 @@ fun PlayerScreen(
 
     LaunchedEffect(channel) {
         channel?.let {
-            isLoading = true
-            hasError = false
-            val mediaItem = MediaItem.fromUri(it.url)
-            exoPlayer.setMediaItem(mediaItem)
-            exoPlayer.prepare()
-            exoPlayer.playWhenReady = true
+            // Validate channel URL before attempting to play
+            if (it.url.isEmpty()) {
+                isLoading = false
+                hasError = true
+                errorMessage = "Invalid URL: Channel URL is empty"
+                return@let
+            }
+
+            try {
+                isLoading = true
+                hasError = false
+                errorMessage = ""
+                val mediaItem = MediaItem.fromUri(it.url)
+                exoPlayer.setMediaItem(mediaItem)
+                exoPlayer.prepare()
+                exoPlayer.playWhenReady = true
+            } catch (e: Exception) {
+                isLoading = false
+                hasError = true
+                errorMessage = "Failed to load: ${e.message ?: "Unknown error"}"
+                e.printStackTrace()
+            }
         }
     }
 
@@ -57,11 +74,15 @@ fun PlayerScreen(
         exoPlayer.addListener(object : Player.Listener {
             override fun onPlaybackStateChanged(playbackState: Int) {
                 when (playbackState) {
-                    Player.STATE_READY -> isLoading = false
+                    Player.STATE_READY -> {
+                        isLoading = false
+                        hasError = false
+                    }
                     Player.STATE_BUFFERING -> isLoading = true
                     Player.STATE_ENDED -> {
                         isLoading = false
                         hasError = true
+                        errorMessage = "Stream ended"
                     }
                     Player.STATE_IDLE -> {}
                 }
@@ -70,6 +91,8 @@ fun PlayerScreen(
             override fun onPlayerError(error: androidx.media3.common.PlaybackException) {
                 isLoading = false
                 hasError = true
+                errorMessage = "Playback Error: ${error.message ?: "Unknown error"}"
+                error.printStackTrace()
             }
         })
     }
@@ -140,7 +163,8 @@ fun PlayerScreen(
             ) {
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.spacedBy(16.dp)
+                    verticalArrangement = Arrangement.spacedBy(16.dp),
+                    modifier = Modifier.padding(16.dp)
                 ) {
                     Text(
                         text = "Playback Error",
@@ -148,8 +172,13 @@ fun PlayerScreen(
                         textAlign = TextAlign.Center
                     )
                     Text(
+                        text = errorMessage,
+                        style = BodyMedium.copy(color = Color.White.copy(alpha = 0.9f)),
+                        textAlign = TextAlign.Center
+                    )
+                    Text(
                         text = "Press back to return",
-                        style = BodyMedium.copy(color = Color.White.copy(alpha = 0.7f)),
+                        style = BodySmall.copy(color = Color.White.copy(alpha = 0.7f)),
                         textAlign = TextAlign.Center
                     )
                 }
