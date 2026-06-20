@@ -2,80 +2,59 @@
   "channels": [
     {
       "id": 1,
-      "title": "Channel 1",
-      "url": "https://live.irinn.ir/live/irinn/playlist.m3u8",
-      "logo": "",
-      "category": "General"
-    },
-    {
-      "id": 2,
-      "title": "Channel 2",
-      "url": "https://live.irib.ir/live/irib2/playlist.m3u8",
-      "logo": "",
-      "category": "General"
-    },
-    {
-      "id": 3,
-      "title": "Channel 3",
-      "url": "https://live.irib.ir/live/irib3/playlist.m3u8",
-      "logo": "",
-      "category": "Sports"
-    },
-    {
-      "id": 4,
-      "title": "News",
-      "url": "https://live.irinn.ir/live/news/playlist.m3u8",
-      "logo": "",
-      "category": "News"
-    },
-    {
-      "id": 5,
-      "title": "Documentary",
-      "url": "https://live.irib.ir/live/mandan/playlist.m3u8",
-      "logo": "",
-      "category": "Documentary"
-    },
-    {
-      "id": 6,
-      "title": "Education",
-      "url": "https://live.irib.ir/live/amoozesh/playlist.m3u8",
-      "logo": "",
-      "category": "Education"
-    },
-    {
-      "id": 7,
-      "title": "Entertainment",
-      "url": "https://live.irib.ir/live/nasim/playlist.m3u8",
-      "logo": "",
+      "title": "Manoto TV",
+      "url": "https://ca-rt.onetv.app/manototv/index-0.m3u8?token=onetv202",
+      "logo": "https://www.manototv.com/images/logo.png",
       "category": "Entertainment"
     },
     {
+      "id": 2,
+      "title": "Iran International",
+      "url": "https://d234zyvf3b6a4t.cloudfront.net/out/v1/abe3211a88b84dafa7a48b8fb2678895/index.m3u8",
+      "logo": "https://www.iranintl.com/static/logo.png",
+      "category": "News"
+    },
+    {
+      "id": 3,
+      "title": "4 Music",
+      "url": "https://4muhls.persiana.live/hls/stream.m3u8",
+      "logo": "https://4music.ir/logo.png",
+      "category": "Music"
+    },
+    {
+      "id": 4,
+      "title": "4 Kurd",
+      "url": "https://4kuhls.persiana.live/hls/stream.m3u8",
+      "logo": "https://4kurd.ir/logo.png",
+      "category": "Music"
+    },
+    {
+      "id": 5,
+      "title": "4U TV",
+      "url": "https://hls.4utv.live/hls/stream.m3u8",
+      "logo": "https://4utv.live/logo.png",
+      "category": "Entertainment"
+    },
+    {
+      "id": 6,
+      "title": "Afra Film",
+      "url": "https://afrafhls.wns.live/hls/stream.m3u8",
+      "logo": "https://afrafilm.ir/logo.png",
+      "category": "Movies"
+    },
+    {
+      "id": 7,
+      "title": "Afra Series",
+      "url": "https://afrashls.wns.live/hls/stream.m3u8",
+      "logo": "https://afraseries.ir/logo.png",
+      "category": "Series"
+    },
+    {
       "id": 8,
-      "title": "Sports",
-      "url": "https://live.irib.ir/live/varzesh/playlist.m3u8",
-      "logo": "",
-      "category": "Sports"
-    },
-    {
-      "id": 9,
-      "title": "Jam Jam",
-      "url": "https://live.irib.ir/live/jamjam/playlist.m3u8",
-      "logo": "",
-      "category": "International"
-    },
-    {
-      "id": 10,
-      "title": "Press TV",
-      "url": "https://live.presstv.ir/live/press/playlist.m3u8",
-      "logo": "",
-      "category": "International"
-    },
-    {
-      "id": 11,
-      "title": "Persiana Sport 1",
-      "url": "https://cdn.ayaslive.ir/hls2/persiana.m3u8",
-      "logo": "",
-      "category": "Sports"
+      "title": "Abalfadhl TV",
+      "url": "https://t.northtelecom.org/ABALFADHLTV.m3u8",
+      "logo": "https://abalfadhl.ir/logo.png",
+      "category": "Religious"
     }
   ]
 }
